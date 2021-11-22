@@ -11,7 +11,7 @@ function App() {
       <Navbarpage />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/company" element={<Company />} />
+        <Route path="/:companyName" element={<Company />} />
       </Routes>
     </BrowserRouter>
   );

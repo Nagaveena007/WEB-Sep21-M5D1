@@ -1,22 +1,27 @@
 import { useEffect, useState } from "react";
 import { fetchjob } from "../apical";
-/* import { Link } from "react-router-dom";
- */ import SingleJob from "./SingleJob";
+import { Container, Row, Col } from "react-bootstrap";
+/* import { Link } from "react-router-dom";*/
+import SingleJob from "./SingleJob";
 
 const Home = () => {
   const [developer, setDeveloper] = useState([]);
 
   useEffect(() => {
-    fetchjob("developer").then((res) => setDeveloper(res));
+    fetchjob("jobs").then((res) => setDeveloper(res));
   }, []);
 
+
+
   return (
-    <div className="home__line ">
-      {developer &&
-        developer.map((search) => (
-          <SingleJob src={search.title} key={search._id} />
-        ))}
-    </div>
+    <Container>
+      <Row md={4} xs={1}>
+        {developer &&
+          developer.map((search) => (
+            <SingleJob src={search} key={search._id} />
+          ))}{" "}
+      </Row>
+    </Container>
   );
 };
 export default Home;
