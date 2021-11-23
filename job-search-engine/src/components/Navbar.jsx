@@ -8,15 +8,6 @@ const Navbarpage = (props) => {
         <Nav.Link href="#features"></Nav.Link>
         <Nav.Link href="#pricing"></Nav.Link>
       </Nav>
-      <Form onSubmit={props.handleSubmit}>
-        <FormControl
-          type="text"
-          placeholder="Search"
-          className="mr-sm-2"
-          onChange={props.handleChange}
-        />
-        <Button variant="outline-info">Search</Button>
-      </Form>
     </Navbar>
   );
 };

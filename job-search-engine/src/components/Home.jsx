@@ -11,8 +11,6 @@ const Home = () => {
     fetchjob("jobs").then((res) => setDeveloper(res));
   }, []);
 
-
-
   return (
     <Container>
       <Row md={4} xs={1}>
