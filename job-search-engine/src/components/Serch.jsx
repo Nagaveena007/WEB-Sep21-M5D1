@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { fetchsearch } from "../apical";
 
 const Search = () => {
-  const [query, setQuery] = useState("");
+  /* const [query, setQuery] = useState("");
   const [jobs, setJobs] = useState([]);
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -35,24 +35,25 @@ const Search = () => {
         </Col>
       </Row>
     </Container>
-  );
+  ); */
 
-  /* 
   const [query, setQuery] = useState("");
   const [jobs, setJobs] = useState([]);
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = fetch(
+    const response = await fetch(
       "https://strive-jobs-api.herokuapp.com/jobs?search=" + query + "&limit=10"
     );
+
     if (response.ok) {
-      const data = response.json();
-      setJobs({ jobs: data });
+      const data = await response.json();
+
+      setJobs(data.data);
     } else {
-      console.log("Error fetching jobs");
+      alert("Error fetching jobs");
       return;
     }
   };
@@ -78,7 +79,7 @@ const Search = () => {
         </Col>
       </Row>
     </Container>
-  );*/
+  );
 };
 
 export default Search;
